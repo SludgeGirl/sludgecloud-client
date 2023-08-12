@@ -1,13 +1,13 @@
 use crate::Credentials;
 
 #[derive(Clone)]
-pub struct Config<'a> {
-    credentials: Option<Credentials<'a>>,
-    host: &'a str,
+pub struct Config {
+    credentials: Option<Credentials>,
+    host: String,
 }
 
-impl<'a> Config<'a> {
-    pub fn new(host: &'a str) -> Self {
+impl Config {
+    pub fn new(host: String) -> Self {
         Config {
             credentials: None,
             host,

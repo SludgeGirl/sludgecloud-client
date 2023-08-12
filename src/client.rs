@@ -5,13 +5,13 @@ use crate::{
 
 use threadpool::ThreadPool;
 
-pub struct Client<'a> {
-    service: Nextcloud<'a>,
+pub struct Client {
+    service: Nextcloud,
     thread_pool: ThreadPool,
 }
 
-impl<'a> Client<'a> {
-    pub fn new(credentials: Option<Credentials<'a>>, config: Config<'a>) -> Self {
+impl Client {
+    pub fn new(credentials: Option<Credentials>, config: Config) -> Self {
         Client {
             service: Nextcloud::new(credentials, config.clone()),
             thread_pool: ThreadPool::new(4),

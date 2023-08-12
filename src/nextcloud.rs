@@ -1,13 +1,13 @@
 use crate::Config;
 
 #[derive(Clone)]
-pub struct Nextcloud<'a> {
-    credentials: Option<Credentials<'a>>,
-    config: Config<'a>,
+pub struct Nextcloud {
+    credentials: Option<Credentials>,
+    config: Config,
 }
 
-impl<'a> Nextcloud<'a> {
-    pub fn new(credentials: Option<Credentials<'a>>, config: Config<'a>) -> Self {
+impl<'a> Nextcloud {
+    pub fn new(credentials: Option<Credentials>, config: Config) -> Self {
         Nextcloud {
             credentials,
             config,
@@ -47,10 +47,10 @@ impl<'a> Nextcloud<'a> {
     }
 }
 
-#[derive(Clone, Copy)]
-pub struct Credentials<'a> {
-    pub username: &'a str,
-    pub secret: &'a str,
+#[derive(Clone)]
+pub struct Credentials {
+    pub username: String,
+    pub secret: String,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
