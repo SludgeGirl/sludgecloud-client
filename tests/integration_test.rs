@@ -3,9 +3,9 @@ use sludgecloud::{Client, Credentials};
 #[test]
 fn test_client() {
     let mut client = Client::new(Some(Credentials {
-        username: "",
-        secret: "",
+        username: "".into(),
+        secret: "".into(),
     }));
 
-    client.upload_file("/home/sludge/testing");
+    client.upload_file("/home/sludge/testing".into());
 }
